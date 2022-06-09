@@ -12,7 +12,7 @@
 
 .task input {
   appearance: none;
-  display: none;
+  display: none;  
 }
 
 .task {  
@@ -21,7 +21,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  user-select: none;
+  user-select: none;  
 }
 
 .task span {
@@ -30,6 +30,7 @@
   width: 1.5rem;
   height: 1.5rem;
   margin-right: 1rem;
+  
 }
 
 .task input:not(:checked) ~ span::before {
@@ -44,9 +45,12 @@
 
 .task input:checked ~ span.check::before {
   content: url('../assets/check.svg');
-  border: none;  
-  text-decoration-line: line-through;
-  
+  border: none;   
+}
+
+.task input:checked ~ label {
+  text-decoration: line-through;
+  color: var(--gray-300);
 }
 
 .container button {
@@ -59,13 +63,9 @@
   margin-left: 2.250rem;
   background: transparent;
   border: none;
-  cursor: pointer;
+  cursor: pointer;  
 }
 
-@media (max-width: 600px) {
-  .task span {
-    margin-right: 2rem;
-  }
-}
+
 
 
