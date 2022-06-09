@@ -1,0 +1,9 @@
+.container {
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.container h1 {
+  padding: 10px;
+  background: var(--gray-500);
+}

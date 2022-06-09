@@ -1,0 +1,43 @@
+.container {
+  display: flex;  
+  align-items: center; 
+  gap: 0.5rem; 
+  margin: -1.69rem 0.875rem 4rem 0.875rem;
+}
+
+.container input {
+  width: 87%;
+  height: 3.375rem;
+  background: var(--gray-500);
+  border-radius: 8px;
+  border: none;
+  line-height: 1.4;
+  font-size: 1rem;
+  color: var(--gray-100);
+  padding: 1rem;
+}
+
+.container input::placeholder {
+  color: var(--gray-300);
+}
+
+.container button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+  width: 12%;
+  height: 3.375rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gray-100);
+  background: var(--blue-dark);
+  transition: background 0.5s;
+}
+
+.container button:hover {
+  background: var(--blue);
+}

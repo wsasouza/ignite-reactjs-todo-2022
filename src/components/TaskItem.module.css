@@ -1,0 +1,71 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0.875rem;
+  padding: 1rem;
+  background: var(--gray-500);
+  border-radius: 8px;
+  min-height: 4.5rem;
+
+}
+
+.task input {
+  appearance: none;
+  display: none;
+}
+
+.task {  
+  position: relative;
+  margin: 5px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+
+.task span {
+  position: relative;
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 1rem;
+}
+
+.task input:not(:checked) ~ span::before {
+  content: '';
+  position: absolute;    
+  left: 0;
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 50%;
+  border: 1px solid var(--blue);
+}
+
+.task input:checked ~ span.check::before {
+  content: url('../assets/check.svg');
+  border: none;  
+  text-decoration-line: line-through;
+  
+}
+
+.container button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;  
+  margin-left: 2.250rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .task span {
+    margin-right: 2rem;
+  }
+}
+
+
