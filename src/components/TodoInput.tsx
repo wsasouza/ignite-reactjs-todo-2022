@@ -1,5 +1,4 @@
 import { useState, FormEvent, ChangeEvent } from 'react';
-
 import { PlusCircle } from 'phosphor-react';
 
 import styles from './TodoInput.module.css';
@@ -19,14 +18,14 @@ export function TodoInput({ addTask }: TodoInputProps) {
     if (taskFormatted.length > 0) {
       addTask(taskFormatted);
       setTask('');
-    } else {
-      alert('Digite uma nova tarefa');
     }
   }
 
   function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
     setTask(event.target.value);
   }
+
+  const isNewTaskEmpty = task.length === 0;
 
   return (
     <form onSubmit={handleAddNewTask} className={styles.container}>
@@ -36,7 +35,7 @@ export function TodoInput({ addTask }: TodoInputProps) {
         value={task}
         onChange={handleNewTaskChange}
       />
-      <button>
+      <button disabled={isNewTaskEmpty} type="submit">
         Criar
         <PlusCircle size={16} weight="bold" />
       </button>

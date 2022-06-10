@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { toast, ToastContainer } from 'react-toastify';
 
 import { Header } from './components/Header';
 import { TodoInput } from './components/TodoInput';
@@ -14,7 +15,15 @@ export function App() {
     const taskWithSameTitle = tasks.find((task) => task.title === newTaskTitle);
 
     if (taskWithSameTitle) {
-      alert('Tarefa já cadastrada');
+      toast.error(`Tarefa ${newTaskTitle} já foi cadastrada.`, {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       return;
     }
 
@@ -26,6 +35,16 @@ export function App() {
     };
 
     setTasks((oldState) => [...oldState, newTask]);
+
+    toast.success(`Tarefa ${newTask.title} foi criada.`, {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   }
 
   function handleToggleTaskDone(id: string) {
@@ -40,6 +59,18 @@ export function App() {
 
   function handleRemoveTask(id: string) {
     setTasks((oldState) => oldState.filter((task) => task.id !== id));
+
+    const deletedTask = tasks.find((task) => task.id === id);
+
+    toast.warn(`Tarefa ${deletedTask?.title} foi apagada.`, {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   }
 
   return (
@@ -47,6 +78,17 @@ export function App() {
       <Header />
       <div className={styles.container}>
         <TodoInput addTask={handleAddTask} />
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
         <TaskList
           tasks={tasks}
           toggleTaskDone={handleToggleTaskDone}

@@ -41,3 +41,24 @@
 .container button:hover {
   background: var(--blue);
 }
+
+.container button:disabled {  
+  cursor: not-allowed;
+}
+
+.container button:disabled:hover {
+  background: var(--blue-dark);
+}
+
+@media (max-width: 600px) {
+  .container input {
+    font-size: 0.875rem;
+    width: 80%;
+  }
+
+  .container button {
+    font-size: 0.875rem;
+    width: 19%;
+    gap: 0.2rem;
+  }
+}

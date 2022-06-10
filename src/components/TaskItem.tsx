@@ -39,6 +39,7 @@ export function TaskItem({ task, toggleTaskDone, removeTask }: TaskItemProps) {
           id={task.id}
           onClick={() => toggleTaskDone(task.id)}
           value={task.title}
+          title="tarefa"
           readOnly
         />
       </div>
@@ -47,6 +48,7 @@ export function TaskItem({ task, toggleTaskDone, removeTask }: TaskItemProps) {
           type="button"
           className={styles.taskDelete}
           onClick={() => removeTask(task.id)}
+          title="Apagar tarefa"
         >
           <Trash size={20} />
         </button>

@@ -1,3 +1,4 @@
+import { TaskEmpty } from './TaskEmpty';
 import { TaskItem } from './TaskItem';
 
 import styles from './TaskList.module.css';
@@ -16,32 +17,46 @@ interface TaskListProps {
 }
 
 export function TaskList({ tasks, toggleTaskDone, removeTask }: TaskListProps) {
+  const hasTask = tasks.length !== 0;
+
+  const taskCompleted = tasks.reduce((completed, task) => {
+    return task.done ? completed + 1 : completed;
+  }, 0);
+
   return (
     <div className={styles.container}>
       <header>
         <div className={styles.taskCreated}>
           <p>Tarefas criadas</p>
-          <span>5</span>
+          <span>{tasks.length}</span>
         </div>
 
         <div className={styles.taskCompleted}>
           <p>Tarefas concluídas</p>
-          <span>2 de 5</span>
+          {hasTask ? (
+            <span>{`${taskCompleted} de ${tasks.length}`}</span>
+          ) : (
+            <span>{taskCompleted}</span>
+          )}
         </div>
       </header>
 
-      <main className={styles.taskList}>
-        {tasks.map((task) => {
-          return (
-            <TaskItem
-              key={task.id}
-              task={task}
-              toggleTaskDone={toggleTaskDone}
-              removeTask={removeTask}
-            />
-          );
-        })}
-      </main>
+      {hasTask ? (
+        <main className={styles.taskList}>
+          {tasks.map((task) => {
+            return (
+              <TaskItem
+                key={task.id}
+                task={task}
+                toggleTaskDone={toggleTaskDone}
+                removeTask={removeTask}
+              />
+            );
+          })}
+        </main>
+      ) : (
+        <TaskEmpty />
+      )}
     </div>
   );
 }
