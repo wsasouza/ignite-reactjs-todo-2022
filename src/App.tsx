@@ -36,7 +36,7 @@ export function App() {
 
     setTasks((oldState) => [...oldState, newTask]);
 
-    toast.success(`Tarefa ${newTask.title} foi criada.`, {
+    toast.info(`Tarefa ${newTask.title} foi criada.`, {
       position: 'top-right',
       autoClose: 5000,
       hideProgressBar: false,
@@ -54,6 +54,19 @@ export function App() {
     if (!foundTask) return;
 
     foundTask.done = !foundTask.done;
+
+    if (foundTask.done) {
+      toast.success(`Tarefa ${foundTask.title} foi concluída.`, {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+
     setTasks(updatedTasks);
   }
 
