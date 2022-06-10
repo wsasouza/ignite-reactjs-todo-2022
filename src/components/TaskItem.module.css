@@ -1,71 +1,80 @@
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.container { 
+  display: grid;
+  grid-template-columns: 2rem auto 5rem;    
   margin: 0 0.875rem;
   padding: 1rem;
   background: var(--gray-500);
   border-radius: 8px;
-  min-height: 4.5rem;
-
+  min-height: 5rem;   
 }
 
-.task input {
-  appearance: none;
-  display: none;  
-}
-
-.task {  
-  position: relative;
-  margin: 5px 0;
-  cursor: pointer;
+.marker {
   display: flex;
-  align-items: center;
-  user-select: none;  
+  align-items: flex-start;  
 }
 
-.task span {
-  position: relative;
-  display: inline-block;
-  width: 1.5rem;
-  height: 1.5rem;
-  margin-right: 1rem;
-  
-}
-
-.task input:not(:checked) ~ span::before {
-  content: '';
-  position: absolute;    
-  left: 0;
-  width: 1.125rem;
-  height: 1.125rem;
+.taskMarker {  
+  display: block;
+  width: 1.2rem;
+  height: 1.2rem;
   border-radius: 50%;
-  border: 1px solid var(--blue);
+  border: 1px solid var(--blue);  
 }
 
-.task input:checked ~ span.check::before {
-  content: url('../assets/check.svg');
-  border: none;   
+.taskMarkerDone {
+  display: block;
+  width: 1.2rem;
+  height: 1.2rem;  
+  border: none;
+  background: url('../assets/check.svg') no-repeat;  
 }
 
-.task input:checked ~ label {
+.text {
+  display: flex;
+  align-items: flex-start;
+}
+
+.taskText{  
+  width: 100%;
+  background: transparent;
+  border: 0; 
+  color: var(--gray-100);  
+}
+
+.taskTextDone {
+  width: 100%;
+  background: transparent;
+  border: 0; 
   text-decoration: line-through;
   color: var(--gray-300);
 }
 
-.container button {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.5rem;
-  height: 1.5rem;  
-  margin-left: 2.250rem;
-  background: transparent;
-  border: none;
-  cursor: pointer;  
+.taskText:focus,
+.taskTextDone:focus {
+  outline: transparent;
+  box-shadow: 0 0 0 2px var(--gray-500);
 }
 
+.trash {
+  display: flex;    
+  justify-content: end;
+  align-items: flex-start;  
+}
 
+.taskDelete {
+  background: transparent;  
+  border: none;
+  color: var(--gray-100);  
+}
 
+.taskDelete:hover {
+  color: var(--danger);
+}
 
+.taskTime {
+  display: flex;
+  margin-top: 0.5rem;
+  grid-column: 1/-1;
+  justify-content: end;  
+  color: var(--gray-300);
+}

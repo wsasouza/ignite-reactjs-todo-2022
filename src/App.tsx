@@ -22,6 +22,7 @@ export function App() {
       id: uuidv4(),
       title: newTaskTitle,
       done: false,
+      createdAt: new Date(),
     };
 
     setTasks((oldState) => [...oldState, newTask]);
