@@ -65,6 +65,7 @@
   background: transparent;  
   border: none;
   color: var(--gray-100);  
+  transition: color 0.5s;
 }
 
 .taskDelete:hover {

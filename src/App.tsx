@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { toast, ToastContainer } from 'react-toastify';
 
@@ -9,7 +9,20 @@ import { Task, TaskList } from './components/TaskList';
 import styles from './App.module.css';
 
 export function App() {
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useState<Task[]>(initialValue);
+
+  useEffect(() => {
+    localStorage.setItem('@todo', JSON.stringify(tasks));
+  }, [tasks]);
+
+  function initialValue() {
+    const saved = localStorage.getItem('@todo');
+    const initialValue = JSON.parse(saved || '[]');
+    const initialValueWithDate = initialValue.map((task: Task) => {
+      return { ...task, createdAt: new Date(task.createdAt) };
+    });
+    return initialValueWithDate || [];
+  }
 
   function handleAddTask(newTaskTitle: string) {
     const taskWithSameTitle = tasks.find((task) => task.title === newTaskTitle);
