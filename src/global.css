@@ -17,6 +17,14 @@
 
   --toastify-color-light: #262626;
   --toastify-color-dark: #262626;
+  --toastify-color-info: linear-gradient(to right, #4ea8de, #8284fa);
+  --toastify-color-error: linear-gradient(to right, #e25858, #8284fa);
+  --toastify-color-warning: linear-gradient(to right, #FBBB19, #8284fa);
+  --toastify-color-success: linear-gradient(to right, #1CFB19, #8284fa);
+  --toastify-icon-color-info: #4ea8de;
+  --toastify-icon-color-error: #e25858;
+  --toastify-icon-color-warning: #FBBB19;
+  --toastify-icon-color-success: #1CFB19;  
   
   --toastify-text-color-light: #f2f2f2;
   --toastify-text-color-dark: #f2f2f2;

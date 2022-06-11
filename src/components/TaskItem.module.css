@@ -5,7 +5,12 @@
   padding: 1rem;
   background: var(--gray-500);
   border-radius: 8px;
-  min-height: 5rem;   
+  min-height: 5rem;  
+  transition: box-shadow 0.5s; 
+}
+
+.container:hover {  
+  box-shadow: 2px 2px 5px var(--purple-dark);  
 }
 
 .marker {
@@ -30,7 +35,7 @@
 }
 
 .text {
-  display: flex;
+  display: inline;
   align-items: flex-start;
 }
 
@@ -79,3 +84,5 @@
   justify-content: end;  
   color: var(--gray-300);
 }
+
+
