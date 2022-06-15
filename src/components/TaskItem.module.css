@@ -23,7 +23,8 @@
   width: 1.2rem;
   height: 1.2rem;
   border-radius: 50%;
-  border: 1px solid var(--blue);  
+  border: 1px solid var(--blue); 
+  cursor: pointer; 
 }
 
 .taskMarkerDone {
@@ -31,12 +32,13 @@
   width: 1.2rem;
   height: 1.2rem;  
   border: none;
-  background: url('../assets/check.svg') no-repeat;  
+  background: url('../assets/check.svg') no-repeat; 
+  cursor: pointer;  
 }
 
 .text {
   display: inline;
-  align-items: flex-start;
+  align-items: flex-start;  
 }
 
 .taskText{  
@@ -44,6 +46,7 @@
   background: transparent;
   border: 0; 
   color: var(--gray-100);  
+  cursor: pointer;
 }
 
 .taskTextDone {
@@ -52,6 +55,7 @@
   border: 0; 
   text-decoration: line-through;
   color: var(--gray-300);
+  cursor: pointer; 
 }
 
 .taskText:focus,
@@ -75,6 +79,7 @@
 
 .taskDelete:hover {
   color: var(--danger);
+  cursor: pointer;
 }
 
 .taskTime {

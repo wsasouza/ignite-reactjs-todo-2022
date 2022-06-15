@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { DragDropContext, DropResult } from 'react-beautiful-dnd';
 import { v4 as uuidv4 } from 'uuid';
 import { toast, ToastContainer } from 'react-toastify';
 
@@ -23,6 +24,20 @@ export function App() {
     });
     return initialValueWithDate || [];
   }
+
+  const onDragEnd = (result: DropResult) => {
+    const { source, destination } = result;
+
+    if (!destination) {
+      return;
+    }
+
+    const items = Array.from(tasks);
+    const [newOrder] = items.splice(source.index, 1);
+    items.splice(destination.index, 0, newOrder);
+
+    setTasks(items);
+  };
 
   function handleAddTask(newTaskTitle: string) {
     const taskWithSameTitle = tasks.find((task) => task.title === newTaskTitle);
@@ -115,11 +130,13 @@ export function App() {
           draggable
           pauseOnHover
         />
-        <TaskList
-          tasks={tasks}
-          toggleTaskDone={handleToggleTaskDone}
-          removeTask={handleRemoveTask}
-        />
+        <DragDropContext onDragEnd={onDragEnd}>
+          <TaskList
+            tasks={tasks}
+            toggleTaskDone={handleToggleTaskDone}
+            removeTask={handleRemoveTask}
+          />
+        </DragDropContext>
       </div>
     </>
   );
