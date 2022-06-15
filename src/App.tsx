@@ -43,15 +43,7 @@ export function App() {
     const taskWithSameTitle = tasks.find((task) => task.title === newTaskTitle);
 
     if (taskWithSameTitle) {
-      toast.error(`Tarefa ${newTaskTitle} já foi cadastrada.`, {
-        position: 'top-right',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      toast.error(`Tarefa ${newTaskTitle} já foi cadastrada.`);
       return;
     }
 
@@ -64,15 +56,7 @@ export function App() {
 
     setTasks((oldState) => [...oldState, newTask]);
 
-    toast.info(`Tarefa ${newTask.title} foi criada.`, {
-      position: 'top-right',
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+    toast.info(`Tarefa ${newTask.title} foi criada.`);
   }
 
   function handleToggleTaskDone(id: string) {
@@ -84,15 +68,7 @@ export function App() {
     foundTask.done = !foundTask.done;
 
     if (foundTask.done) {
-      toast.success(`Tarefa ${foundTask.title} foi concluída.`, {
-        position: 'top-right',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      toast.success(`Tarefa ${foundTask.title} foi concluída.`);
     }
 
     setTasks(updatedTasks);
@@ -103,15 +79,7 @@ export function App() {
 
     const deletedTask = tasks.find((task) => task.id === id);
 
-    toast.warn(`Tarefa ${deletedTask?.title} foi apagada.`, {
-      position: 'top-right',
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+    toast.warn(`Tarefa ${deletedTask?.title} foi apagada.`);
   }
 
   return (
@@ -121,7 +89,7 @@ export function App() {
         <TodoInput addTask={handleAddTask} />
         <ToastContainer
           position="top-right"
-          autoClose={5000}
+          autoClose={2000}
           hideProgressBar={false}
           newestOnTop={false}
           closeOnClick

@@ -45,8 +45,7 @@
   width: 100%;
   background: transparent;
   border: 0; 
-  color: var(--gray-100);  
-  cursor: pointer;
+  color: var(--gray-100);    
 }
 
 .taskTextDone {
@@ -54,8 +53,7 @@
   background: transparent;
   border: 0; 
   text-decoration: line-through;
-  color: var(--gray-300);
-  cursor: pointer; 
+  color: var(--gray-300);   
 }
 
 .taskText:focus,
