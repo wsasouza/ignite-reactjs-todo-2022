@@ -43,6 +43,7 @@ To-do list
 :heavy_check_mark: Mark when the task has been completed;\
 :heavy_check_mark: Delete a task;\
 :heavy_check_mark: Data saved in Local Storage;\
+:heavy_check_mark: Cards Drag and drop;\
 :heavy_check_mark: Responsive design;
 
 ## :rocket: Technologies
